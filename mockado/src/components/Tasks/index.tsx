@@ -5,11 +5,12 @@ import { Store } from '../../redux/reducers';
 import {
   loadTasks, addTask, deleteTask, toggleTask
 } from '../../redux/actions/actionCreators';
+import { taskMockModel } from '../../services/models/taskMockModel';
 
 const Lista = () => {
   const dispatch = useDispatch();
   const tasksList = useSelector((store:Store) => store.tasks);
-  const newId = tasksList.length + 1;
+  const newId:number = tasksList.length + 1;
 
   useEffect(() => {
     if (!tasksList.length)dispatch(loadTasks());
@@ -17,11 +18,11 @@ const Lista = () => {
 
   const [task, setTask] = useState('');
 
-  function saveTask(id:Number, toDo:String):void {
+  function saveTask(id:number, toDo:string):void {
     dispatch(addTask(id, toDo));
   }
 
-  function activeToggle(idTask:Number) {
+  function activeToggle(idTask:Number):void {
     dispatch(toggleTask(idTask));
   }
 
@@ -33,7 +34,7 @@ const Lista = () => {
 
         <ul>
           {
-        tasksList?.map((item:any) => (
+        tasksList?.map((item:taskMockModel) => (
           <li onClick={() => activeToggle(item.id)} role="presentation" key={item.id}>
             {item.task}
             {' '}

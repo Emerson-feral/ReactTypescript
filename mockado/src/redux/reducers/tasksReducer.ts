@@ -1,7 +1,6 @@
 import actionTypes from '../actions/actionTypes';
 
 function tasksReducer(tasks:any = [], action:any) {
-  /* let newTasks:any; */
   switch (action.type) {
     case actionTypes.LOAD_TASKS:
       return action.tasks;

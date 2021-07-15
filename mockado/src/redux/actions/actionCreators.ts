@@ -8,7 +8,7 @@ export function loadTasks() {
   };
 }
 
-export function addTask(newId:Number, data:String) {
+export function addTask(newId:number, data:string) {
   return {
     type: actionTypes.ADD_TASK,
     task: { id: newId, task: data, marked: false }
